@@ -6,7 +6,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get todos_url
+    get root_url
     assert_response :success
   end
 
@@ -43,6 +43,6 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
       delete todo_url(@todo)
     end
 
-    assert_redirected_to todos_url
+    assert_redirected_to root_url
   end
 end
