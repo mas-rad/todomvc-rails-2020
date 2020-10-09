@@ -44,12 +44,16 @@ class TodosTest < ApplicationSystemTestCase
   #   assert_text "Todo was successfully updated"
   # end
 
-  # test "destroying a Todo" do
-  #   visit root_url
-  #   page.accept_confirm do
-  #     click_on "Destroy", match: :first
-  #   end
+  test "deleting a todo" do
+    visit root_url
 
-  #   assert_text "Todo was successfully destroyed"
-  # end
+    first('ul.todo-list li').hover
+    click_button class: 'destroy'
+
+    assert_no_selector 'label', text: 'Learn Stimulus JS'
+    assert_equal [
+      'Learn Rails',
+      'Install Ruby'
+    ], todos_title
+  end
 end
