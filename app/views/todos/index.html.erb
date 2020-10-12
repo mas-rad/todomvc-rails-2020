@@ -22,6 +22,7 @@
           id: nil
         %>
         <label
+          data-target='editable.label'
           data-action='dblclick->editable#showInput'
         ><%= todo.title %></label>
         <%= button_to(todo, remote: true, method: :delete, class: 'destroy') {} %>
