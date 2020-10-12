@@ -110,6 +110,20 @@ class TodosTest < ApplicationSystemTestCase
     assert_selector 'label', text: 'Learn Ruby on Rails'
   end
 
+  test "editing a todo and press escape" do
+    visit root_url
+
+    assert_selector 'label', text: 'Learn Rails'
+    find('label', text: 'Learn Rails').double_click
+
+    input = first('input.edit')
+    input.fill_in with: 'Learn Ruby on Rails'
+    input.native.send_keys(:escape)
+
+    assert_no_selector 'input.edit'
+    assert_selector 'label', text: 'Learn Rails'
+  end
+
   test "marking a todo as completed or not" do
     visit root_url
 

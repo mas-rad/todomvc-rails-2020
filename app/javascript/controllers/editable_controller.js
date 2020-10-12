@@ -25,4 +25,11 @@ export default class extends Controller {
       this.itemTarget.classList.remove('editing')
     }
   }
+
+  escapeInput(event) {
+    if (event.key === 'Escape') {
+      this.inputTarget.value = this.labelTarget.textContent
+      this.inputTarget.blur()
+    }
+  }
 }
