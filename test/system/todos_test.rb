@@ -96,6 +96,20 @@ class TodosTest < ApplicationSystemTestCase
     assert_selector 'label', text: 'Learn Ruby on Rails'
   end
 
+  test "editing a todo and focus out" do
+    visit root_url
+
+    assert_selector 'label', text: 'Learn Rails'
+    find('label', text: 'Learn Rails').double_click
+
+    first('input.edit').fill_in with: 'Learn Ruby on Rails'
+    # Focus to another element
+    find('footer').click
+
+    assert_no_selector 'input.edit'
+    assert_selector 'label', text: 'Learn Ruby on Rails'
+  end
+
   test "marking a todo as completed or not" do
     visit root_url
 

@@ -2,9 +2,10 @@
 // https://stimulusjs.org/handbook/introduction
 
 import { Controller } from 'stimulus'
+import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ['item', 'input']
+  static targets = ['item', 'input', 'form']
 
   showInput(event) {
     if (!this.itemTarget.classList.contains('editing')) {
@@ -15,5 +16,9 @@ export default class extends Controller {
         this.inputTarget.value.length
       )
     }
+  }
+
+  submitForm(event) {
+    Rails.fire(this.formTarget, 'submit')
   }
 }
