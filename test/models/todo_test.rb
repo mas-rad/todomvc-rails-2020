@@ -12,6 +12,15 @@ class TodoTest < ActiveSupport::TestCase
     assert_equal 'Learn Rails', todo.title
   end
 
+  test "destroy instead of updating when title is blank" do
+    todo = todos(:one)
+    todo.update_or_destroy(title: 'Install Stimulus')
+    refute todo.destroyed?
+
+    todo.update_or_destroy(title: "\t\n")
+    assert todo.destroyed?
+  end
+
   test "toggle all todos" do
     assert_difference('Todo.completed.count', 2) do
       Todo.toggle_all!
