@@ -56,7 +56,7 @@ class TodosController < ApplicationController
   def destroy
     @todo.destroy
     respond_to do |format|
-      format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Todo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
