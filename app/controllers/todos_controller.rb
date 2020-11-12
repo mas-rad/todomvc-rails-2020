@@ -12,7 +12,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       
         format.html { redirect_to root_url, notice: 'Todo was successfully edit.' }
-        format.json { render :show, status: :created, location: @todo }
+        format.json
       
     end
 
