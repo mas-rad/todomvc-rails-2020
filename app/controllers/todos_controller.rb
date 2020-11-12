@@ -11,8 +11,8 @@ class TodosController < ApplicationController
   def show
     respond_to do |format|
       
-        format.html { redirect_to root_url, notice: 'Todo was successfully edit.' }
-        format.json { render :show, status: :created, location: @todo }
+        format.html { redirect_to root_url, notice: 'Todo was successfully updated.' }
+        format.json
       
     end
 
