@@ -2,7 +2,7 @@
   <h1>todos</h1>
   <%= form_with(model: Todo.new, local: true) do |form| %>
   <div class="field">
-    <%= form.text_field :title ,class: "new-todo", placeholder: "Placeholder" %>
+    <%= form.text_field :title ,class: "new-todo", placeholder: "Placeholder", autofocus: true %>
   </div>
 <% end %>
 </header>
