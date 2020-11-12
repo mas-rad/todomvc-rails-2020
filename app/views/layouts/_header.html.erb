@@ -1,4 +1,20 @@
 <header class="header">
   <h1>todos</h1>
-  <% # TODO Add new form %>
+  <%= form_with(model: Todo.new, local: true) do |form| %>
+  
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 </header>
