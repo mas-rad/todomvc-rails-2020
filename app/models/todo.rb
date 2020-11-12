@@ -1,4 +1,9 @@
 class Todo < ApplicationRecord
-  # TODO add title presence validation
+    validates :title, presence: true
+    def title=(string)
+    super string.strip
+  end
+  
+    # TODO add title presence validation
   # TODO trim title
 end
