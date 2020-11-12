@@ -9,6 +9,10 @@ class TodosController < ApplicationController
 
   # GET /todos/1.json
   def show
+    respond_to do |format|
+        format.html { redirect_to root_url, notice: 'Todo was shown.' }
+        format.json {render :show, status: :ok, location: @todo }
+    end
   end
 
   # GET /todos/new
