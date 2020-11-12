@@ -11,7 +11,7 @@ class TodosController < ApplicationController
   def show
     respond_to do |format|
       # Redirect
-      format.html { redirect_to root_url, notice: 'Redirected from todos/index.' }
+      format.html { redirect_to root_url, notice: 'Redirected from todos/index' }
       # Keep same behaviour for json
       format.json 
     end
