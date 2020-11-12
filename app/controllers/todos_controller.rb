@@ -9,6 +9,12 @@ class TodosController < ApplicationController
 
   # GET /todos/1.json
   def show
+    respond_to do |format|
+      # Redirect
+      format.html { redirect_to root_url, notice: 'Redirected from todos/index.' }
+      # Keep same behaviour for json
+      format.json 
+    end
   end
 
   # GET /todos/new
