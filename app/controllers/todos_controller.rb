@@ -11,7 +11,7 @@ class TodosController < ApplicationController
   def show
     respond_to do |format|
       
-        format.html { redirect_to root_url, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to root_url }
         format.json
       
     end
