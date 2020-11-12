@@ -1,10 +1,10 @@
 <header class="header">
   <h1>todos</h1>
-  
-  <%= form_with(model: Todo.new, local: true) do |form| %>
-
-    <%= form.text_field :title, class: 'new-todo', placeholder: "What needs to be done?", autofocus: true %>
-
-  <%= end %>
-
+  <%= form_with(model: Todo.new) do |form| %>
+    <%= form.text_field :title,
+      placeholder: 'What needs to be done?',
+      class: 'new-todo',
+      autofocus: true,
+      required: true %>
+  <% end %>
 </header>
