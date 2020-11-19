@@ -1,6 +1,6 @@
 <ul class="todo-list">
   <% @todos.each do |todo| %>
-    <li class="">
+    <li class="<%= 'completed' if todo.completed %>">
       <div class="view">
         <%= check_box_tag nil, nil, todo.completed,
           data: {
@@ -9,7 +9,7 @@
             params: { todo: { completed: !todo.completed } }.to_param,
             method: :patch
           },
-          class: 'toggle',
+          class: 'toggle '   ,
           id: nil
         %>
         <label><%= todo.title %></label>
