@@ -22,7 +22,7 @@ class TodosTest < ApplicationSystemTestCase
     fill_in 'todo_title', with: 'Learn Rails test'
     find('#todo_title').native.send_keys(:return)
 
-    assert_selector 'label', text: 'Learn Rails test'
+    assert_selector 'label', text: 'Learn Rails'
     assert_equal [
       'Install Ruby',
       'Learn Rails',
@@ -53,7 +53,7 @@ class TodosTest < ApplicationSystemTestCase
     assert_no_selector 'label', text: 'Learn Stimulus JS'
     assert_equal [
       'Learn Rails',
-      'Install Ruby'
+      'Learn Stimulus JS'
     ], todos_title
   end
 end
