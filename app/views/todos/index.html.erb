@@ -3,7 +3,7 @@
     <li>
       <div class="view">
         <label><%= todo.title %></label>
-        <% 'TODO: Add a button' %>
+        <%= button_to(todo, remote: true, method: :delete, class: 'destroy'){} %>
       </div>
     </li>
   <% end %>
