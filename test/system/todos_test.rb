@@ -50,7 +50,9 @@ class TodosTest < ApplicationSystemTestCase
     first('ul.todo-list li').hover
     click_button class: 'destroy'
 
+
     assert_no_selector 'label', text: 'Learn Stimulus JS'
+
     assert_equal [
       'Learn Rails',
       'Learn Stimulus JS'
