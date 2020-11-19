@@ -1,7 +1,17 @@
 <ul class="todo-list">
   <% @todos.each do |todo| %>
-    <li>
+    <li class="<%= todo.completed? ? 'completed' : '' %>">
       <div class="view">
+        <%= check_box_tag nil, nil, todo.completed,
+          data: {
+            remote: true,
+            url: todo_path(todo),
+            params: { todo: { completed: !todo.completed } }.to_param,
+            method: :patch
+          },
+          class: 'toggle',
+          id: nil
+        %>
         <label><%= todo.title %></label>
         <%= button_to(todo, remote: true, method: :delete, class: 'destroy') {} %>
       </div>
