@@ -29,11 +29,6 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'application/json; charset=utf-8', response.content_type
   end
 
-  test "should get edit" do
-    get edit_todo_url(@todo)
-    assert_response :success
-  end
-
   test "should update todo" do
     patch todo_url(@todo), params: { todo: { completed: @todo.completed, title: @todo.title } }
     assert_redirected_to root_url
