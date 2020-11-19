@@ -1,22 +1,14 @@
-<p id="notice"><%= notice %></p>
+<ul class="todo-list">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr>
-        <td><%= todo.title %></td>
-        <td><%= todo.completed %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <li>
+    <div class="view">
+      <% @todos.order('created_at ASC').each do |todo| %>
+      <label><%= todo.title %></label>
+      <% end %>
+      
+    </div>
+  </li>
+</ul>
+
+
