@@ -5,10 +5,7 @@ class TodosController < ApplicationController
   # GET /.json
   def index
     @todos = Todo.order(:created_at)
-    if params[:scope].in?(%w[active])
-      @todos = @todos.public_send(params[:scope])
-    end
-    if params[:scope].in?(%w[completed])
+    if params[:scope].in?(%w[active completed])
       @todos = @todos.public_send(params[:scope])
     end
   end
