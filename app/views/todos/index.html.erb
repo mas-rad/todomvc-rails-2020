@@ -1,6 +1,6 @@
 <ul class="todo-list">
   <% @todos.each do |todo| %>
-    <li class="">
+    <li class="<%= 'completed' if todo.completed %>">
       <div class="view">
         <%= check_box_tag nil, nil, todo.completed,
           data: {
