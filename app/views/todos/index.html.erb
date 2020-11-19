@@ -1,7 +1,11 @@
 <ul class="todo-list">
   <li>
     <div class="view">
-      <label>Make me dynamic</label>
+
+          <% @todos.each do |todo| %>
+            <label><%= todo.title %> </label>
+          <% end %>
+
     </div>
   </li>
 </ul>
