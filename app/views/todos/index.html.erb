@@ -1,20 +1,22 @@
 <ul class="todo-list">
   <% @todos.each do |todo| %>
     <li class="">
-      <div class="view">
-        <%= check_box_tag nil, nil, todo.completed,
-          data: {
-            remote: true,
-            url: todo_path(todo),
-            params: { todo: { completed: !todo.completed } }.to_param,
-            method: :patch
-          },
-          class: 'toggle',
-          id: nil
-        %>
-        <label><%= todo.title %></label>
-        <%= button_to(todo, remote: true, method: :delete, class: 'destroy') {} %>
-      </div>
+      <li class="<%= todo.completed? ? "completed" : "" %>">
+        <div class="view">
+          <%= check_box_tag nil, nil, todo.completed,
+            data: {
+              remote: true,
+              url: todo_path(todo),
+              params: { todo: { completed: !todo.completed } }.to_param,
+              method: :patch
+            },
+            class: 'toggle',
+            id: nil
+          %>
+          <label><%= todo.title %></label>
+          <%= button_to(todo, remote: true, method: :delete, class: 'destroy') {} %>
+        </div>
+      </li>
     </li>
   <% end %>
 </ul>
