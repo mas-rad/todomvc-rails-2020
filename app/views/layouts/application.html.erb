@@ -11,11 +11,13 @@
 
   <body>
     <section class="todoapp">
-      <%= render 'layouts/header' %>
-      <section class="main">
-        <%= yield %>
-      </section>
-      <%= render 'layouts/footer' %>
+      <%= render 'layouts/header'%>
+      <% if Todo.any? %>
+        <section class="main" >
+          <%= yield %>
+        </section>
+        <%= render 'layouts/footer' %>
+      <% end %>
     </section>
   </body>
 </html>
