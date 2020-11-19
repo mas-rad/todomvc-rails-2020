@@ -1,0 +1,7 @@
+<footer class="footer">
+  <ul class="filters">
+    <li><%= link_to 'All', root_url, class: ('selected' unless params[:scope]) %></li>
+    <li><%= link_to 'Active', active_todos_url, class: ('selected' if params[:scope] == 'active') %></li>
+    <li><%= link_to 'Completed', completed_todos_url, class: ('selected' if params[:scope] == 'completed') %></li>
+  </ul>
+</footer>
