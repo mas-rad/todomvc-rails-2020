@@ -67,3 +67,4 @@ class TodosTest < ApplicationSystemTestCase
     ], todos_title
   end
 end
+
