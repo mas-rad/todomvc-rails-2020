@@ -8,6 +8,9 @@ class TodosController < ApplicationController
     if params[:scope].in?(%w[active])
       @todos = @todos.public_send(params[:scope])
     end
+    if params[:scope].in?(%w[completed])
+      @todos = @todos.public_send(params[:scope])
+    end
   end
 
   # GET /todos/1.json
