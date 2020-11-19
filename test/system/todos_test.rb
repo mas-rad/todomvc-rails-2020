@@ -40,18 +40,18 @@ class TodosTest < ApplicationSystemTestCase
 
     assert_equal ['Install Ruby'], completed_todos_title
 
-    first("ul.todo-list input.toggle", visible: false).check
+    first("ul.todo-list li:not(.completed) input.toggle", visible: false).check
 
-    assert_selector 'li.completed', text: 'Learn Stimulus JS'
+    assert_selector 'li.completed', text: 'Learn Rails'
     assert_equal [
-      'Learn Stimulus JS',
-      'Install Ruby'
+      'Install Ruby',
+      'Learn Rails'
     ], completed_todos_title
 
     first("ul.todo-list input.toggle:checked", visible: false).uncheck
 
-    assert_no_selector 'li.completed', text: 'Learn Stimulus JS'
-    assert_equal ['Install Ruby'], completed_todos_title
+    assert_no_selector 'li.completed', text: 'Install Ruby'
+    assert_equal ['Learn Rails'], completed_todos_title
   end
 
   test "deleting a todo" do
