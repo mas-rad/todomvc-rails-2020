@@ -1,5 +1,10 @@
 <ul class="todo-list">
-    <%=>
+  <% @todos.each do |todo| %>
+    <li>
+      <div class="view">
+        <label><%= todo.title %></label>
+        <% 'TODO: Add a button' %>
+      </div>
+    </li>
+  <% end %>
 </ul>
-
-
