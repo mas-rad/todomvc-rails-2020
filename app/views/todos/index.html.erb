@@ -1,14 +1,14 @@
 <ul class="todo-list">
 
-
+<% @todos.order('created_at ASC').each do |todo| %>
   <li>
     <div class="view">
-      <% @todos.order('created_at ASC').each do |todo| %>
+      
       <label><%= todo.title %></label>
-      <% end %>
       
     </div>
   </li>
+  <% end %>
 </ul>
 
 
