@@ -1,11 +1,13 @@
 <ul class="todo-list">
+  <% @todos.each do |todo| %>
   <li>
     <div class="view">
-    <% @todos.each do |todo| %>
+    
 				<input class="toggle" type="checkbox">
 				<label><%= todo.title %></label>
 				<button class="destroy"></button>
     </div>
-    <% end %>
+    
   </li>
+  <% end %>
 </ul>
