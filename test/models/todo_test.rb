@@ -11,4 +11,16 @@ class TodoTest < ActiveSupport::TestCase
     todo = Todo.new(title: "\t\n Learn Rails \x00\v\f\r ")
     assert_equal 'Learn Rails', todo.title
   end
+
+  test "toggle all todos" do
+    assert_difference('Todo.completed.count', 2) do
+      Todo.toggle_all!
+    end
+    assert_difference('Todo.completed.count', -3) do
+      Todo.toggle_all!
+    end
+    assert_difference('Todo.completed.count', 3) do
+      Todo.toggle_all!
+    end
+  end
 end

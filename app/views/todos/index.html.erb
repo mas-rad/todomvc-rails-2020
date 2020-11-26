@@ -1,3 +1,8 @@
+<%= check_box_tag 'toggle-all', '1', "EDIT ME!",
+  data: { remote: true, url: toggle_all_todos_url, method: :patch },
+  class: 'toggle-all'
+%>
+<%= label_tag 'toggle-all', 'Mark all as complete' %>
 <ul class="todo-list">
   <% @todos.each do |todo| %>
     <li class="<%= 'completed' if todo.completed? %>">

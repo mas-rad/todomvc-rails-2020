@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'completed', to: 'todos#index', as: 'completed_todos', scope: 'completed'
   resources :todos, except: [:index, :new, :edit] do
     collection do
+      # ADD something here
       delete 'clear_completed'
     end
   end

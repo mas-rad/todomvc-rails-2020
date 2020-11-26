@@ -48,6 +48,16 @@ class TodosController < ApplicationController
     end
   end
 
+  # PATCH /todos/toggle_all
+  # PATCH /todos/toggle_all.json
+  def toggle_all
+    Todo.toggle_all!
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url, notice: 'Todos were successfully toggled.' }
+      format.json { head :ok }
+    end
+  end
+
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
