@@ -9,6 +9,12 @@ class Todo < ApplicationRecord
   end
 
   def self.toggle_all!
-    # ...
+    if completed.count == count
+        update_all completed: false
+    else
+        active.update_all completed: true
+    end
+
+    
   end
 end
