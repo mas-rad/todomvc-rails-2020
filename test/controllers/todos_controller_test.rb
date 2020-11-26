@@ -41,4 +41,14 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_url
   end
+
+  test "should clear all completed todos" do
+    todos(:two).update!(completed: true)
+
+    assert_difference('Todo.completed.count', -2) do
+      delete clear_completed_todos_url
+    end
+
+    assert_redirected_to root_url
+  end
 end

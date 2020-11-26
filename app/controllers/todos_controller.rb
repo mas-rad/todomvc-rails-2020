@@ -58,6 +58,14 @@ class TodosController < ApplicationController
     end
   end
 
+  # DELETE /todos/clear_completed
+  # DELETE /todos/clear_completed.json
+  def clear_completed
+    # - Clear all completed todos
+    # - Redirect back to root_url
+    # - Support JSON
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
