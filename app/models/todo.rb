@@ -8,13 +8,7 @@ class Todo < ApplicationRecord
     super string.strip
   end
 
-  def self.toggle_all!
-    if completed.count == count
-        update_all completed: false
-    else
-        active.update_all completed: true
-    end
-
-    
+  def self.toggle_all!    
+    update_all completed: active.any?    
   end
 end
