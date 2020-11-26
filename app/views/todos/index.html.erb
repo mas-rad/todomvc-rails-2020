@@ -1,4 +1,4 @@
-<%= check_box_tag 'toggle-all', '1', "EDIT ME!",
+<%= check_box_tag 'toggle-all', '1', true,
   data: { remote: true, url: toggle_all_todos_url, method: :patch },
   class: 'toggle-all'
 %>

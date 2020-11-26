@@ -9,6 +9,10 @@ class Todo < ApplicationRecord
   end
 
   def self.toggle_all!
-    # ...
+    if Todo.exists?(completed: false)
+      Todo.update_all completed: true
+    else
+      Todo.update_all completed: false    
+    end
   end
 end
