@@ -62,8 +62,11 @@ class TodosController < ApplicationController
   # DELETE /todos/clear_completed.json
   def clear_completed
     # - Clear all completed todos
+    @todo.completed.destroy_all()
     # - Redirect back to root_url
+    format.html { redirect_to root_url }
     # - Support JSON
+    format.json { head :no_content }
   end
 
   private
