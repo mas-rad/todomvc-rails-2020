@@ -103,6 +103,27 @@ class TodosTest < ApplicationSystemTestCase
     assert_equal '2 items left', todos_counter
   end
 
+  test "toggling all todos" do
+    visit root_url
+    assert_selector "h1", text: "todos"
+
+    find("label[for='toggle-all']").click
+
+    assert_selector 'li.completed', text: 'Learn Stimulus JS'
+    assert_equal [
+      'Install Ruby',
+      'Learn Rails',
+      'Learn Stimulus JS'
+    ], completed_todos_title
+    assert_equal '0 items left', todos_counter
+
+    find("label[for='toggle-all']").click
+
+    assert_no_selector 'li.completed', text: 'Learn Stimulus JS'
+    assert_equal [], completed_todos_title
+    assert_equal '3 items left', todos_counter
+  end
+
   test "deleting a todo" do
     visit root_url
 
