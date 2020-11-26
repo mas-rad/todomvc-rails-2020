@@ -30,7 +30,7 @@ class TodosController < ApplicationController
       else
         format.html { redirect_back fallback_location: root_url, notice: 'Todo was NOT successfully created.' }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+      endgit 
     end
   end
 
