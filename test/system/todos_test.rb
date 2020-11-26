@@ -126,8 +126,9 @@ class TodosTest < ApplicationSystemTestCase
     assert_no_selector 'label', text: 'Install Ruby'
     assert_no_selector 'button.clear-completed', text: 'Clear completed'
     assert_equal [
-      'Learn Stimulus JS',
-      'Learn Rails'
+        'Learn Rails',
+      'Learn Stimulus JS'
+      
     ], todos_title
   end
 end

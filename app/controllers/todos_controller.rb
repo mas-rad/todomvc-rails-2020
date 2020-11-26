@@ -64,6 +64,11 @@ class TodosController < ApplicationController
     # - Clear all completed todos
     # - Redirect back to root_url
     # - Support JSON
+    Todo.where(completed: true).destroy_all
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url, notice: 'Todos completed was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
