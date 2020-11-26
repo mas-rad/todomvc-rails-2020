@@ -1,4 +1,7 @@
 <footer class="footer">
+  <span class="todo-count">
+    <%= t('.items_left_html',count: Todo.active.count) %>
+  </span>
   <ul class="filters">
     <li><%= link_to 'All', root_path, class: ('selected' unless params[:scope]) %></li>
     <li><%= link_to 'Active', active_todos_path, class: ('selected' if params[:scope] == 'active') %></li>
