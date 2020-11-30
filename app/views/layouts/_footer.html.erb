@@ -6,7 +6,7 @@
     <li><%= link_to 'Completed', completed_todos_path, class: ('selected' if params[:scope] == 'completed') %></li>
   </ul>
   <% if Todo.completed.any? %>
-    <%= button_to(clear_completed_todos_url, method: :delete, remote: true, class: 'clear-completed') do %>
+    <%= button_to(clear_completed_todos_path, method: :delete, remote: true, class: 'clear-completed') do %>
       Clear completed
     <% end %>
   <% end %>

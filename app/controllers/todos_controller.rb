@@ -30,7 +30,7 @@ class TodosController < ApplicationController
       else
         format.html { redirect_back fallback_location: root_url, notice: 'Todo was NOT successfully created.' }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
-      endgit 
+      end
     end
   end
 
@@ -61,9 +61,9 @@ class TodosController < ApplicationController
   # DELETE /todos/clear_completed
   # DELETE /todos/clear_completed.json
   def clear_completed
-    Todo.completed.destroy_all
+    Todo.completed.delete_all
     respond_to do |format|
-      format.html { redirect_back fallback_location: root_url, notice: 'All destroyed.' }
+      format.html { redirect_back fallback_location: root_url, notice: 'Todos was successfully deleted.' }
       format.json { head :no_content }
     end
   end
