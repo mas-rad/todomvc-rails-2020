@@ -8,6 +8,10 @@ class Todo < ApplicationRecord
     super string.strip
   end
 
+  def update_or_destroy(attrs = {})
+    # ADD CODE HERE...
+  end
+
   def self.toggle_all!
     update_all(completed: active.any?)
   end
