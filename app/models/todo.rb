@@ -9,7 +9,13 @@ class Todo < ApplicationRecord
   end
 
   def update_or_destroy(attrs = {})
-    # ADD CODE HERE...
+     assign_attributes(attrs)
+     if title.blank?
+        self.destroy()
+     else
+        self.update(attrs)
+     end
+
   end
 
   def self.toggle_all!
