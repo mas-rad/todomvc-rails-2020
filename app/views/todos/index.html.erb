@@ -29,7 +29,6 @@
       </div>
       <%= form_with model: todo, data: { target: 'editable.form' } do |form| %>
         <%= form.text_field :title,
-          required: true,
           class: 'edit',
           data: {
             target: 'editable.input',
