@@ -22,15 +22,19 @@
           id: nil
         %>
         <label
+          data-target='editable.label'
           data-action='dblclick->editable#showInput'
         ><%= todo.title %></label>
         <%= button_to(todo, remote: true, method: :delete, class: 'destroy') {} %>
       </div>
-      <%= form_with model: todo do |form| %>
+      <%= form_with model: todo, data: { target: 'editable.form'} do |form| %>
         <%= form.text_field :title,
           required: true,
           class: 'edit',
-          data: { target: 'editable.input' },
+          data: { 
+              target: 'editable.input',
+              action: 'blur->editable#submitForm'
+            },
           id: nil
         %>
       <% end %>

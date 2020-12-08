@@ -5,7 +5,7 @@ import { Controller } from 'stimulus'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ['item', 'input', 'form']
+  static targets = ['item', 'input', 'form', 'label']
 
   showInput(event) {
     if (!this.itemTarget.classList.contains('editing')) {
@@ -19,6 +19,10 @@ export default class extends Controller {
   }
 
   submitForm(event) {
-    Rails.fire(this.formTarget, 'submit')
-  }
+     if (this.inputTarget.value != this.labelTarget.textContent) {
+      Rails.fire(this.formTarget, 'submit')
+    } else {
+      this.itemTarget.classList.remove('editing')
+    }
+    }
 }
